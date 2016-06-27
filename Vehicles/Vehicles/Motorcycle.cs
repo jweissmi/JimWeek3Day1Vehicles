@@ -12,7 +12,13 @@ namespace Vehicles
 
         public Motorcycle(string make) : base(make)
         {
+            for (int i = 0; i < _tires.Length; i++)
+            {
+                Tire newTire = new Tire();
+                _tires[i] = newTire;
+            }
 
+            ChangeOil();
         }
 
         #region Member Variables
@@ -25,11 +31,37 @@ namespace Vehicles
 
         #region Methods
 
-        public override bool ChangeOil()
+        public override void ChangeOil()
         {
-            throw new NotImplementedException();
+            MilageOfNextOilChange = Milage + 1000;
         }
 
+        public override void AddMilage(int miles)
+        {
+            Milage += miles;
+
+            for (int i = 0; i < _tires.Length; i++)
+            {
+                _tires[i].AddMiles(miles);
+            }
+        }
+
+        public override void ChangeTire(int whichTire)
+        {
+            if (whichTire <= _tires.Length && whichTire > 0)
+            {
+                Tire newTire = new Tire();
+                _tires[whichTire - 1] = newTire;
+            }
+        }
+
+        public override bool OilChangeNeeded()
+        {
+            if (Milage >= MilageOfNextOilChange)
+                return true;
+            else
+                return false;
+        }
         #endregion
     }
 }
