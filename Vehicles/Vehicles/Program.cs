@@ -32,6 +32,28 @@ namespace Vehicles
             myCar.AddMilage(5000);
             myCar.ChangeTire(4);
 
+            Car mySmallCar = new Car("Chevy Cruze");
+            mySmallCar.AddMilage(7000);
+            bool needOil3 = mySmallCar.OilChangeNeeded();
+            mySmallCar.AddMilage(1000);
+            mySmallCar.ChangeOil();
+            mySmallCar.ChangeTires();
+
+            Truck myFreightliner = new Truck("Cascadia");
+            myFreightliner.AddMilage(11000);
+            bool needOil4 = myFreightliner.OilChangeNeeded();
+            myFreightliner.ChangeOil();
+            myFreightliner.AddMilage(15000);
+            myFreightliner.ChangeTire(17);
+
+            Truck myInternational = new Truck("ProStar");
+            myInternational.AddMilage(11000);
+            bool needOil5 = myInternational.OilChangeNeeded();
+            myInternational.ChangeOil();
+            myInternational.AddMilage(15000);
+            myInternational.ChangeOil();
+            bool needOil6 = myInternational.OilChangeNeeded();
+            myInternational.ChangeTires();
         }
     }
 }
