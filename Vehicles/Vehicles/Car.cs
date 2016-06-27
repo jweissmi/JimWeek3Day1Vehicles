@@ -35,7 +35,6 @@ namespace Vehicles
         {
             MilageOfNextOilChange = Milage + 3000;
         }
-
         public override void AddMilage(int miles)
         {
             Milage += miles;
@@ -45,7 +44,6 @@ namespace Vehicles
                 _tires[i].AddMiles(miles);
             }
         }
-
         public override void ChangeTire(int whichTire)
         {
             if (whichTire <= _tires.Length && whichTire > 0)
@@ -54,7 +52,13 @@ namespace Vehicles
                 _tires[whichTire - 1] = newTire;
             }
         }
-
+        public override void ChangeTires()
+        {
+            for (int i = 0; i < _tires.Length; i++)
+            {
+                _tires[i] = new Tire();
+            }
+        }
         public override bool OilChangeNeeded()
         {
             if (Milage >= MilageOfNextOilChange)
@@ -62,7 +66,6 @@ namespace Vehicles
             else
                 return false;
         }
-
         #endregion
     }
 }

@@ -55,6 +55,14 @@ namespace Vehicles
             }
         }
 
+        public override void ChangeTires()
+        {
+            for (int i = 0; i < _tires.Length; i++)
+            {
+                _tires[i] = new Tire();
+            }
+        }
+
         public override bool OilChangeNeeded()
         {
             if (Milage >= MilageOfNextOilChange)
