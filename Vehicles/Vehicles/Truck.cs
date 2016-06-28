@@ -21,6 +21,21 @@ namespace Vehicles
             ChangeOil();
         }
 
+        public int Miles
+        {
+            get { return base.Milage; }
+        }
+
+        public int OilChangeMilage
+        {
+            get { return base.MilageOfNextOilChange; }
+        }
+
+        public Tire[] Tires
+        {
+            get { return _tires; }
+        }
+
         #region Member Variables
 
         #endregion
@@ -66,6 +81,7 @@ namespace Vehicles
             else
                 return false;
         }
+
         #endregion
     }
 }

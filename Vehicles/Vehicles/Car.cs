@@ -11,14 +11,30 @@ namespace Vehicles
         Tire[] _tires = new Tire[4];
 
         public Car(string make) : base(make)
+
         {
-            for(int i = 0; i < _tires.Length; i++)
+            for (int i = 0; i < _tires.Length; i++)
             {
                 Tire newTire = new Tire();
                 _tires[i] = newTire;
             }
 
             ChangeOil();
+        }
+
+        public int Miles
+        {
+            get { return base.Milage; }
+        }
+
+        public int OilChangeMilage
+        {
+            get { return base.MilageOfNextOilChange; }
+        }
+
+        public Tire[] Tires
+        {
+            get { return _tires; }
         }
 
         #region Member Variables
@@ -29,7 +45,7 @@ namespace Vehicles
 
         #endregion
 
-        #region Methods
+        #region Methods        
 
         public override void ChangeOil()
         {
@@ -39,7 +55,7 @@ namespace Vehicles
         {
             Milage += miles;
 
-            for(int i = 0; i < _tires.Length; i++)
+            for (int i = 0; i < _tires.Length; i++)
             {
                 _tires[i].AddMiles(miles);
             }
@@ -66,6 +82,6 @@ namespace Vehicles
             else
                 return false;
         }
-        #endregion
     }
+    #endregion
 }

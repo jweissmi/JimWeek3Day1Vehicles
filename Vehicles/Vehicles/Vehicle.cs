@@ -64,7 +64,7 @@ namespace Vehicles
         public abstract void ChangeTire(int whichTire);
         public abstract void ChangeTires();
         public abstract bool OilChangeNeeded();
-
+        
         #endregion
     }
 }
